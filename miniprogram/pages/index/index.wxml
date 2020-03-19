@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+
+<image class='background' wx:if='{{customerLevel.value}}' src="/user-unlogin.png" mode="aspectFill"></image>
+
+<view>税负优惠查询</view>
+
+<view class='select_box'>
+    <view class='select' catchtap='selectTap'>
+        <text class='select_text' >{{selectData[index]}}</text>
+    </view>
+    <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+    </view>
+</view>
+
+<button type="primary" bindtap="onQuery"> 查询 </button>
+<text class="code" wx:if="{{queryResult}}">{{queryResult}}</text>
+
+
+</view>
